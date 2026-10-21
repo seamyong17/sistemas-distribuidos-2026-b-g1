@@ -4,7 +4,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class SalesMetrics {
-    private final double[] bounds = {0.05, 0.1, 0.25, 0.5, 1, 3, 5};
+    private final double[] bounds = {0.05, 0.1, 0.25, 0.5, 1, 3, 5, 10};
     private final long[] buckets = new long[bounds.length];
     private final long[] outcomes = new long[3];
     private long count;
