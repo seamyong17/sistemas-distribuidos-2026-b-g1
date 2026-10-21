@@ -96,5 +96,7 @@ Technical references: [SRE multi-window alerts](https://sre.google/workbook/aler
 and [Prometheus alert rules](https://prometheus.io/docs/prometheus/latest/configuration/alerting_rules/).
 
 Validation: SnakeYAML 2.6 parsed the file; four recording rules, two alerts and
-required labels/annotations were checked locally. No promtool or Prometheus
-expression evaluation was run; live notification behavior remains unverified.
+required labels/annotations were checked locally. The Prometheus lezer-promql
+parser accepted all six rule expressions and the three CP6 SLI expressions.
+This validates syntax only: no promtool or time-series evaluation was run;
+live notification behavior remains unverified.
