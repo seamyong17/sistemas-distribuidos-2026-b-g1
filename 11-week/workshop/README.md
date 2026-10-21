@@ -6,7 +6,7 @@
 - TEAM: Bysellens-Platform
 - DOCS_REPO: https://github.com/code-corhuila/bysellens-docs
 - REFLECTION_DOC: https://docs.google.com/document/d/1frtao2jfFsyZTddwNuKRS81WsBYSRTWD22xksFyelyo/edit?usp=drivesdk
-- JOURNEY:
+- JOURNEY: Register a sale and track asynchronous stock processing (proposed design)
 <!-- CONFIG-END -->
 
 ## Individual scope and current status
@@ -22,4 +22,5 @@ backend elements; they are not verified running components.
 - `03-product/vision.md`: sales registration and sales history in the MVP scope.
 - `05-architecture/overview.md`: selected backend architecture and technologies.
 
-JOURNEY will be completed in CP1 after resolving the documented design conflicts.
+The instructor approved using the proposed architecture and a workshop prototype,
+as reported by the student. CP1 documents the design, not an existing backend.
