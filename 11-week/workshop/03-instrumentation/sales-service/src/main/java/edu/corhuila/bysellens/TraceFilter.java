@@ -11,6 +11,8 @@ import org.springframework.web.filter.OncePerRequestFilter;
 
 @Component
 public class TraceFilter extends OncePerRequestFilter {
+    private final SalesMetrics metrics;
+    public TraceFilter(SalesMetrics metrics) { this.metrics = metrics; }
     @Override
     protected boolean shouldNotFilter(HttpServletRequest request) {
         return !request.getRequestURI().equals("/api/v1/sales");
@@ -26,8 +28,13 @@ public class TraceFilter extends OncePerRequestFilter {
                 Map.of("route", "/api/v1/sales", "method", request.getMethod()));
         try {
             chain.doFilter(request, response);
+        } catch (IOException | ServletException | RuntimeException e) {
+            response.setStatus(500);
+            throw e;
         } finally {
-            StructuredLogger.write(ctx, "INFO", "sale.request.completed", "Sale prototype request completed",
+            metrics.observe(response.getStatus(), (System.nanoTime() - start) / 1_000_000_000.0);
+            StructuredLogger.write(ctx, response.getStatus() >= 500 ? "ERROR" : "INFO",
+                    "sale.request.completed", "Sale prototype request completed",
                     (System.nanoTime() - start) / 1_000_000.0,
                     Map.of("route", "/api/v1/sales", "method", request.getMethod(), "http_status", response.getStatus()));
         }

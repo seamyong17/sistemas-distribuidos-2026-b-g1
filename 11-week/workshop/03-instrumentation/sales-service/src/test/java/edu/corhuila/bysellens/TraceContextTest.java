@@ -12,7 +12,7 @@ class TraceContextTest {
         var request = new MockHttpServletRequest("POST", "/api/v1/sales");
         request.addHeader("traceparent", "00-91c786ab12de45ff8076aabd34cda109-a100000000000001-01");
         var response = new MockHttpServletResponse();
-        new TraceFilter().doFilter(request, response, (req, res) -> res.getWriter().write("prototype"));
+        new TraceFilter(new SalesMetrics()).doFilter(request, response, (req, res) -> res.getWriter().write("prototype"));
         var ctx = (TraceContext) request.getAttribute("traceContext");
         assertEquals("91c786ab12de45ff8076aabd34cda109", ctx.traceId());
         assertNotEquals("a100000000000001", ctx.spanId());
