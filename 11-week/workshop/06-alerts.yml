@@ -1,0 +1,49 @@
+# Proposed Sales availability rules; no live deployment is claimed.
+# Team sources: Sales service README, Sales OpenAPI and Product Stock contract.
+# Journey elements: sales-service, Sale/SaleItem and Product-owned Stock.
+groups:
+  - name: bysellens-sales-availability
+    interval: 30s
+    rules:
+      - record: sales:availability_error_ratio:rate1h
+        expr: |
+          sum(rate(sales_requests_total{route="/api/v1/sales",outcome="error"}[1h]))
+          /
+          sum(rate(sales_requests_total{route="/api/v1/sales",outcome=~"success|error"}[1h]))
+      - record: sales:availability_error_ratio:rate5m
+        expr: |
+          sum(rate(sales_requests_total{route="/api/v1/sales",outcome="error"}[5m]))
+          /
+          sum(rate(sales_requests_total{route="/api/v1/sales",outcome=~"success|error"}[5m]))
+      - record: sales:availability_error_ratio:rate6h
+        expr: |
+          sum(rate(sales_requests_total{route="/api/v1/sales",outcome="error"}[6h]))
+          /
+          sum(rate(sales_requests_total{route="/api/v1/sales",outcome=~"success|error"}[6h]))
+      - record: sales:availability_error_ratio:rate30m
+        expr: |
+          sum(rate(sales_requests_total{route="/api/v1/sales",outcome="error"}[30m]))
+          /
+          sum(rate(sales_requests_total{route="/api/v1/sales",outcome=~"success|error"}[30m]))
+      - alert: SalesAvailabilityFastBurn
+        expr: |
+          (sales:availability_error_ratio:rate1h / 0.01 > 14.4)
+          and
+          (sales:availability_error_ratio:rate5m / 0.01 > 14.4)
+        labels:
+          severity: critical
+          team: Bysellens-Platform
+        annotations:
+          summary: "Sales availability error budget is burning above 14.4x in both 1h and 5m windows"
+          runbook_url: "https://github.com/seamyong17/sistemas-distribuidos-2026-b-g1/blob/main/11-week/workshop/07-runbook.md"
+      - alert: SalesAvailabilitySlowBurn
+        expr: |
+          (sales:availability_error_ratio:rate6h / 0.01 > 6)
+          and
+          (sales:availability_error_ratio:rate30m / 0.01 > 6)
+        labels:
+          severity: warning
+          team: Bysellens-Platform
+        annotations:
+          summary: "Sales availability error budget is burning above 6x in both 6h and 30m windows"
+          runbook_url: "https://github.com/seamyong17/sistemas-distribuidos-2026-b-g1/blob/main/11-week/workshop/07-runbook.md"
