@@ -56,7 +56,9 @@ is identified. The photograph does not independently verify the library log.
 - CP1: attack surface, asset inventory and entry points prepared; runtime checks and personal reflection pending.
 - CP2: six STRIDE threats, ranking and proposed residual risk published in PR #50; book passage and owner risk acceptance pending.
 - CP3: three security issues created with priorities and placed in team Backlog; book-backed criterion pending.
-- CP4-CP9: pending.
+- CP4: isolated authorization module tested (6 passing cases) and workflow YAML parsed; proposal published after 20:10; personal reflection pending.
+- CP5: status and evidence links prepared; teammate review and Moodle submission pending.
+- CP6-CP9: pending take-home work.
 - Reflection entries and implementation plan: pending personal writing by the student.
 
 The local fork matched origin/main when fetched. Parent-repository synchronization
