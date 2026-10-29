@@ -53,7 +53,8 @@ and their relevant content have been identified.
 ## Checkpoint status
 
 - CP0: claim issue and reflection document created; personal CP0 entry pending.
-- CP1-CP9: pending.
+- CP1: attack surface, asset inventory and entry points prepared; runtime checks and personal reflection pending.
+- CP2-CP9: pending.
 - Reflection entries and implementation plan: pending personal writing by the student.
 
 The local fork matched origin/main when fetched. Parent-repository synchronization
