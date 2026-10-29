@@ -1,0 +1,49 @@
+name: By_Sellens Sales security proposal
+on:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  secret-scan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Scan repository history for secrets
+        uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITLEAKS_LICENSE: ${{ secrets.GITLEAKS_LICENSE }}
+  dependency-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - name: Audit Sales module dependencies and fail on high severity
+        env:
+          NVD_API_KEY: ${{ secrets.NVD_API_KEY }}
+        run: >-
+          mvn -B -ntp -f 13-week/workshop/04-security-ci/sales-security/pom.xml
+          org.owasp:dependency-check-maven:13.0.0:check
+          -DfailBuildOnCVSS=7 -DfailOnError=true
+          -DnvdApiKeyEnvironmentVariable=NVD_API_KEY
+  authorization-tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - name: Reject non-ADMIN POST /api/v1/sales before the handler
+        run: >-
+          mvn -B -ntp -f 13-week/workshop/04-security-ci/sales-security/pom.xml
+          -Dtest=SalesPostApiV1SalesAuthorizationTest test
