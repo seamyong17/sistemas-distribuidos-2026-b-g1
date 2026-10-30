@@ -10,7 +10,7 @@ Status: CP0 technical setup prepared. Boundary claimed in issue #49; reflection 
 - BOUNDARY: React Sales microfrontend to sales-service, inbound GET and POST /api/v1/sales
 - CLAIM_ISSUE: https://github.com/code-corhuila/bysellens-docs/issues/49
 - REFLECTION_DOC: https://docs.google.com/document/d/1NEYSAGOchYLtFl8E6QszrjmZjbS1EPK-av2XXrCXBcY/edit
-- LIBRARY_BOOK: Ramos Varón, Antonio Ángel; Barbero Muñoz, Carlos A.; Martínez Sánchez, Rubén; García Moreno, Ángel; González Nava, Jesús María. Hacking y seguridad de páginas Web. Bogotá: Ediciones de la U / Ra-ma, 2015. 1st ed. per publisher catalog. Call number 005.8 R175h, copy 1. Consulted pages pending.
+- LIBRARY_BOOK: Ramos Varón, Antonio Ángel; Barbero Muñoz, Carlos A.; Martínez Sánchez, Rubén; García Moreno, Ángel; González Nava, Jesús María. Hacking y seguridad de páginas Web. Bogotá: Ediciones de la U / Ra-ma, 2015. 1st ed. per publisher catalog. Call number 005.8 R175h, copy 1. Consulted physical pages: 15–18, chapter 1, section 1.1; owner supplied photographs. Pages 16 and 18 support privilege-oriented testing and documenting results; applied to E1 / story #53.
 - LIBRARY_RECORD_TIME: 19:30 (reported by the student; record date and library evidence to confirm)
 - STRIDE_PR: https://github.com/code-corhuila/bysellens-docs/pull/50
 - STORIES: https://github.com/code-corhuila/bysellens-docs/issues/51 ; https://github.com/code-corhuila/bysellens-docs/issues/53 ; https://github.com/code-corhuila/bysellens-docs/issues/55
