@@ -65,3 +65,10 @@ Full actionlint validation and a live GitHub Actions run are not yet recorded.
 References: https://docs.spring.io/spring-security/reference/servlet/oauth2/resource-server/jwt.html
 and https://dependency-check.github.io/DependencyCheck/dependency-check-maven/check-mojo.html.
 Personal CP4 reflection remains pending in the student's Google document.
+
+## Current expanded suite
+
+The 2026-10-30 run passed eight test methods, including malformed/unsigned JWTs
+and an RS512 token signed with the trusted key. Every rejection checks zero
+handler invocations. See CP8-test-evidence.md for the real output and timestamp.
+The six-test development excerpt above is retained as historical evidence.

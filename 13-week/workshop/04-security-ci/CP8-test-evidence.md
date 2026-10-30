@@ -30,3 +30,26 @@ broker effects, deployment or an integrated production Sales backend.
 The workflow remains a proposal in this directory. A passing local test does
 not demonstrate a successful secret scan or dependency audit. Full workflow
 linting and the required take-home push spacing remain to be completed.
+## Expanded JWT verification - 2026-10-30
+
+Test source increment: e62bd24. Two additional test methods exercise malformed
+and unsigned tokens, and a correctly signed RS512 token using the trusted key.
+All must return 401 with zero handler invocations. The latter distinguishes
+algorithm pinning from merely trusting a key; the accepted algorithm is RS256.
+Actual console excerpt from the expanded run:
+
+```text
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0
+[INFO] BUILD SUCCESS
+[INFO] Total time: 9.389 s
+[INFO] Finished at: 2026-10-30T17:46:37-05:00
+```
+
+The six-test result above is historical; the current suite has eight test
+methods (some methods exercise several fixtures). The command and isolated
+module limitations remain unchanged. No real sales, stored credentials,
+database, broker or remote service was used.
+
+YAML was parsed and its PR trigger, contents: read permission, three jobs,
+CVSS >=7 failure threshold and negative-test command were checked. This is
+syntax/structure validation, not actionlint or a live Actions execution.

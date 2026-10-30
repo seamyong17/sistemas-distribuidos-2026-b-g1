@@ -67,3 +67,10 @@ is identified. The photograph does not independently verify the library log.
 The local fork matched origin/main when fetched. Parent-repository synchronization
 was not independently verified. Each technical checkpoint is committed and pushed
 separately; pending personal work is not recorded as completed.
+
+Expanded CP8 evidence (2026-10-30): eight test methods passed with zero failures,
+errors or skips, including unsigned/malformed JWTs and a trusted-key RS512
+rejection. The original six-test result is historical. See
+04-security-ci/CP8-test-evidence.md in the workshop folder. Personal reflections,
+CP9 and owner risk acceptance remain pending; no production integration or
+live audit execution is claimed.

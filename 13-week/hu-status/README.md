@@ -72,3 +72,10 @@
 - CP7: refined the same issues #51, #53 and #55; no implementation completion is claimed.
 - CP8: six passing tests recorded at 2026-10-29 06:37:38-05:00 in 04-security-ci/CP8-test-evidence.md. YAML syntax/structure validated; no live secret scan/audit claimed.
 - CP9 and all personal reflections remain pending. Required take-home push count/spacing must be checked separately; no backdated evidence.
+
+Expanded CP8 evidence (2026-10-30): eight test methods passed with zero failures,
+errors or skips, including unsigned/malformed JWTs and a trusted-key RS512
+rejection. The original six-test result is historical. See
+04-security-ci/CP8-test-evidence.md in the workshop folder. Personal reflections,
+CP9 and owner risk acceptance remain pending; no production integration or
+live audit execution is claimed.
