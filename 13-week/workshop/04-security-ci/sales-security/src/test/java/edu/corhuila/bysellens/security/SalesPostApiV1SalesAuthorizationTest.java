@@ -111,4 +111,27 @@ class SalesPostApiV1SalesAuthorizationTest {
             .andExpect(status().isUnauthorized());
         assertEquals(0, handlerInvocations.get());
     }
+    @Test void malformedAndUnsignedTokensReturn401BeforeHandler() throws Exception {
+        var unsigned = new com.nimbusds.jwt.PlainJWT(new JWTClaimsSet.Builder()
+            .subject("test-subject").issuer("bysellens-auth").audience("bysellens-api")
+            .expirationTime(Date.from(Instant.now().plusSeconds(300)))
+            .claim("role", "ADMIN").build()).serialize();
+        for (String invalid : List.of("not-a-jwt", unsigned)) {
+            mvc.perform(post("/api/v1/sales").header("Authorization", "Bearer " + invalid)
+                .header("X-User-Role", "ADMIN")).andExpect(status().isUnauthorized());
+            assertEquals(0, handlerInvocations.get());
+        }
+    }
+    @Test void trustedKeyWithDisallowedAlgorithmReturns401BeforeHandler() throws Exception {
+        var claims = new JWTClaimsSet.Builder().subject("test-subject")
+            .issuer("bysellens-auth").audience("bysellens-api")
+            .issueTime(new Date()).expirationTime(Date.from(Instant.now().plusSeconds(300)))
+            .claim("role", "ADMIN").build();
+        var invalid = new SignedJWT(new JWSHeader(JWSAlgorithm.RS512), claims);
+        invalid.sign(new RSASSASigner((RSAPrivateKey) keyPair.getPrivate()));
+        mvc.perform(post("/api/v1/sales")
+            .header("Authorization", "Bearer " + invalid.serialize()))
+            .andExpect(status().isUnauthorized());
+        assertEquals(0, handlerInvocations.get());
+    }
 }
