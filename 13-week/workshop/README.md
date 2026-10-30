@@ -46,7 +46,7 @@ pending. A documented control is not evidence that the running service enforces 
 The student's spine photograph confirms the title, author names and call number
 005.8 R175h, copy 1. Publication in Bogota in 2015 and a library record at 19:30
 were reported by the student. The publisher catalog lists the first edition.
-The exact consulted pages and the security passage used remain pending.
+The owner supplied physical-page photographs of pp. 15–18. Pages 16 and 18 support privilege-oriented testing and documenting observed results.
 No threat or acceptance criterion is attributed to the book before that passage
 is identified. The photograph does not independently verify the library log.
 
@@ -54,11 +54,14 @@ is identified. The photograph does not independently verify the library log.
 
 - CP0: claim issue and reflection document created; personal CP0 entry pending.
 - CP1: attack surface, asset inventory and entry points prepared; runtime checks and personal reflection pending.
-- CP2: six STRIDE threats, ranking and proposed residual risk published in PR #50; book passage and owner risk acceptance pending.
-- CP3: three security issues created with priorities and placed in team Backlog; book-backed criterion pending.
+- CP2: six STRIDE threats, ranking and proposed residual risk published in PR #50; book citation grounded in pp. 16 and 18; owner risk acceptance pending.
+- CP3: three security issues created with priorities and placed in team Backlog; [B] criterion added to #53; all three stories refined for CP7.
 - CP4: isolated authorization module tested (6 passing cases) and workflow YAML parsed; proposal published after 20:10; personal reflection pending.
-- CP5: status and evidence links prepared; teammate review and Moodle submission pending.
-- CP6-CP9: pending take-home work.
+- CP5: status and evidence links prepared; teammate review published on PR #64 (2026-10-30, late); Moodle submission unverified.
+- CP6: two peer comments addressed in STRIDE commit 8c781b1 and PR reply; owner acceptance pending.
+- CP7: same three security stories refined; implementation remains open.
+- CP8: new six-test pass recorded on 2026-10-29 in 04-security-ci/CP8-test-evidence.md; YAML parsed; workflow remains a proposal.
+- CP9: personal implementation plan pending. Four-push/two-day rhythm requires separate verification.
 - Reflection entries and implementation plan: pending personal writing by the student.
 
 The local fork matched origin/main when fetched. Parent-repository synchronization

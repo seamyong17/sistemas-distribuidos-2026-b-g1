@@ -28,16 +28,16 @@
 
 ## 3. Blockers and risks
 - Personal CP0-CP5 reflection entries remain pending in the student's Google document. They have not been marked completed.
-- The physical-book spine photograph confirms Hacking y seguridad de paginas Web and call number 005.8 R175h, copy 1. The owner reports Bogota, 2015 and library registration at 19:30. Consulted pages/passage are still needed for a [B] mitigation and one story acceptance criterion.
+- The physical-book spine photograph confirms Hacking y seguridad de paginas Web and call number 005.8 R175h, copy 1. The owner reports Bogota, 2015 and library registration at 19:30. The owner supplied photographs of physical pages 15–18; pp. 16 and 18 now support E1 and the [B] acceptance criterion in #53.
 - Risk values and residual-risk acceptance require the owner's review before the defense.
-- CP5 peer review is pending: the team open-PR list checked after 20:10 contained only my PR #50. Other teammates exist, so the solo-team self-review exception does not apply.
+- CP5 peer review was published on 2026-10-30 in Customer PR #64, after the class deadline: https://github.com/code-corhuila/bysellens-docs/pull/64#issuecomment-6533835109 .
 - CP4 publication occurred after the 20:10 class cutoff. This status/CP5 publication is also after that cutoff. Server timestamps are preserved; no claim of on-time completion is made.
 - The GitHub Actions workflow is a proposal in the workshop folder, not an active team pipeline. Secret scanning, vulnerability audit and complete backend integration have not been executed here.
 - Authentication/OpenAPI design conflicts with the older service catalog; ADR-002/current contracts are used explicitly. Parent-course repository synchronization was not independently verified.
 
 ## 4. Plan for next week
-- Finish the personal reflections and book citations using the consulted pages.
-- Review a teammate's STRIDE PR when available and answer the review received on PR #50.
+- Finish the personal reflections and implementation plan; library citation is now grounded in physical pages.
+- Await follow-up review after addressing AnaMariaCharry and luisGascaB in STRIDE commit 8c781b1; three issues refined with verification scope.
 - Continue CP6-CP9 in the same branch/folder/issues with four additional pushes at least 15 minutes apart on at least two days by 2026-10-30 23:59, America/Bogota.
 - Integrate and verify Sales authorization in the real service before implementing pricing/audit/availability controls.
 
@@ -49,8 +49,8 @@
 - [x] Scope follows the documented Sales boundary; no domain persistence added in the fixture
 - [x] Tests use ephemeral keys and no production credentials
 - [ ] Personal reflection entries and implementation plan complete
-- [ ] Consulted library-book pages support a [B] row and story criterion
-- [ ] CP5 teammate review published
+- [x] Consulted library-book pages support a [B] row and story criterion
+- [x] CP5 teammate review published (late; 2026-10-30)
 - [ ] All class checkpoints pushed before 20:10
 - [ ] Moodle progress submission verified
 
@@ -65,4 +65,10 @@
 - CP2 increments: https://github.com/code-corhuila/bysellens-docs/commit/4842c02e0197238b9c04e1f35af6dd3dfbdf3788 ; https://github.com/code-corhuila/bysellens-docs/commit/791fa402dcca186075efbc139876f424de5d3d21
 - CP3: https://github.com/seamyong17/sistemas-distribuidos-2026-b-g1/commit/8439b1efbb0dd301c6bbc4d6356af2e44239e044
 - CP4: https://github.com/seamyong17/sistemas-distribuidos-2026-b-g1/commit/be1ec173800d4d8cfd8af6f491a5efe51fd80e0a
-- CP5 review comment: PENDING - no teammate STRIDE PR was available at the time checked.
+- CP5 review comment: https://github.com/code-corhuila/bysellens-docs/pull/64#issuecomment-6533835109
+
+## Take-home technical evidence
+- CP6: https://github.com/code-corhuila/bysellens-docs/commit/8c781b1 ; proposed T1 price rejection and per-threat score rationales; review response on PR #50.
+- CP7: refined the same issues #51, #53 and #55; no implementation completion is claimed.
+- CP8: six passing tests recorded at 2026-10-29 06:37:38-05:00 in 04-security-ci/CP8-test-evidence.md. YAML syntax/structure validated; no live secret scan/audit claimed.
+- CP9 and all personal reflections remain pending. Required take-home push count/spacing must be checked separately; no backdated evidence.
